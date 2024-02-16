@@ -18,6 +18,7 @@ RSpec.describe Card do
   it 'has a rank and that rank can change' do
     expect(card.rank).to eq('Ace')
     card.rank = 'Queen'
+    # you would be getting back a brand new card
     expect(card.rank).to eq('Queen')
   end
 
