@@ -11,6 +11,7 @@ end
 RSpec.describe Card do
   # This 'before' block of code is going to run before each example in our test suite
   # This is a hook
+  # before(:example)
   before do
     puts "Hey, I'll be output before EACH example"
     @card = Card.new('Ace', 'Spades')
