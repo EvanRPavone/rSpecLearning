@@ -9,16 +9,20 @@ class Card
 end
 
 RSpec.describe Card do
+  # This 'before' block of code is going to run before each example in our test suite
+  # This is a hook
+  before do
+    puts "Hey, I'll be output before EACH example"
+    @card = Card.new('Ace', 'Spades')
+  end
 
-  # This block is an 'Example'
+  # This 'it' block is an 'Example'
   it 'has a rank' do
-    card = Card.new('Ace', 'Spades')
-    expect(card.rank).to eq('Ace')
+    expect(@card.rank).to eq('Ace')
   end
 
   it 'has a suit' do
-    card = Card.new('Ace', 'Spades')
-    expect(card.suit).to eq('Spades')
+    expect(@card.suit).to eq('Spades')
   end
 
 end
