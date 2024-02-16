@@ -19,11 +19,11 @@ RSpec.describe Card do
 
   # This 'it' block is an 'Example'
   it 'has a rank' do
-    expect(@card.rank).to eq('Ace')
+    expect(card.rank).to eq('Ace')
   end
 
   it 'has a suit' do
-    expect(@card.suit).to eq('Spades')
+    expect(card.suit).to eq('Spades')
   end
 
 end
