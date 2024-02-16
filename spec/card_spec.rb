@@ -9,20 +9,19 @@ class Card
 end
 
 RSpec.describe Card do
-  # This is a helper method
-  def card
-    Card.new('Ace', 'Spades')
-  end
+  # lazy loading... This line will not run until it is called in the example
+  let(:card) { Card.new('Ace', 'Spades') }
+  # let! with a ! before every example it will run. basically the before block we used a few commits ago
 
   # This 'it' block is an 'Example'
   it 'has a rank and that rank can change' do
-    expect(card.rank).to eq('Ace')
+    expect(card.rank).to eq('Ace') # the first time this runs, it will cache so it will not make a new card when reassigning
     card.rank = 'Queen'
-    # you would be getting back a brand new card
     expect(card.rank).to eq('Queen')
   end
 
   it 'has a suit' do
+    # will get new card for this example
     expect(card.suit).to eq('Spades')
   end
 
