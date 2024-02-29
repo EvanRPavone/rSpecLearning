@@ -18,4 +18,26 @@ RSpec.describe 'equality matchers' do
     end
   end
 
+  describe 'equal and be matcher' do
+    let(:c) { [1,2,3] }
+    let(:d) { [1,2,3] }
+    let(:e) { c }
+    # equality and identity
+    # equality = checking two things equal in design
+    # identity = check if the 2 things are the same thing
+
+    it 'cares about object identity' do
+      expect(c).to eq(d) # This would pass
+      expect(c).to eql(d) # This would pass
+
+      expect(c).to equal(e) # its the same array, same object
+      # expect(c).to equal(d) # fails
+      # expected #<Array:2260> => [1, 2, 3]
+      # got #<Array:2280> => [1, 2, 3]
+      expect(c).to be(e) # same thing as equal, preferred
+      expect(c).not_to equal(d)
+      expect(c).not_to equal([1,2,3])
+    end
+  end
+
 end
