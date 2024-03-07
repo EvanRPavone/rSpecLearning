@@ -16,7 +16,7 @@ RSpec.describe Person do
   describe 'instance double' do
     it 'can only implement methods that are defined on the class' do
       # person = instance_double(described_class, a:"Hello", b: 20)
-      person = instance_double(described_class)
+      person = instance_double(described_class) # This is preferred
       allow(person).to receive(:a).with(3).and_return("Hello")
       expect(person.a(3)).to eq("Hello")
     end
